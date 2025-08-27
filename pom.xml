@@ -1,67 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ru.yandex.praktikum</groupId>
-    <artifactId>qa-scooter-sprint4-tests</artifactId>
-    <version>1.0.0</version>
-    <name>QA Scooter Sprint 4 Tests</name>
+    <groupId>org.example</groupId>
+    <artifactId>second_project</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>4.13.2</junit.version>
-        <selenium.version>4.20.0</selenium.version>
-        <wdm.version>5.9.2</wdm.version>
-        <surefire.version>3.2.5</surefire.version>
     </properties>
 
     <dependencies>
-        <!-- Selenium -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>${selenium.version}</version>
-        </dependency>
-
-        <!-- JUnit 4 -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
 
-        <!-- WebDriverManager to auto-manage drivers -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.17.0</version>
+        </dependency>
+
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>${wdm.version}</version>
+            <version>5.6.3</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${surefire.version}</version>
-                <configuration>
-                    <forkCount>1</forkCount>
-                    <reuseForks>true</reuseForks>
-                    <systemPropertyVariables>
-                        <!-- default browser can be overridden with -Dbrowser=firefox -->
-                        <browser>chrome</browser>
-                        <baseUrl>https://qa-scooter.praktikum-services.ru/</baseUrl>
-                    </systemPropertyVariables>
-                    <includes>
-                        <include>**/*Test.java</include>
-                    </includes>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>
